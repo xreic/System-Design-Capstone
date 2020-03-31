@@ -1,10 +1,7 @@
 # Project Name
 
 > Project description
-
-```sh
-For this project, we will be attempt to webscale and improve the response time of another group's FEC.
-```
+   For this project, we will be attempt to webscale and improve the response time of another group's FEC.
 
 ## Related Projects
 
@@ -21,7 +18,7 @@ For this project, we will be attempt to webscale and improve the response time o
 
 ## Usage
 
-> Usage Instructions
+ Usage Instructions
 
 ## Requirements
 
