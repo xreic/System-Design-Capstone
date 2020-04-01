@@ -8,8 +8,13 @@
     "node": ">=6.13.0"
   },
   "scripts": {},
-  "dependencies": {},
+  "dependencies": {
+    "fastify": "2.13.0",
+    "nodemon": "2.0.2",
+    "pg": "8.0.0"
+  },
   "devDependencies": {
+    "artillery": "1.6.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
   }
 }
