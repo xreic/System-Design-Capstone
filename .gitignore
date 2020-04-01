@@ -24,3 +24,5 @@ coverage
 build/
 dist/
 
+# Keys
+config/config.js

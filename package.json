@@ -1,5 +1,5 @@
 {
-  "name": "HRLA35-SDC-Team-Ferrari",
+  "name": "hrla35-sdc-team-ferrari",
   "version": "1.0.0",
   "description": "",
   "author": "",
@@ -7,7 +7,9 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "nodemon server/index.js"
+  },
   "dependencies": {
     "fastify": "2.13.0",
     "nodemon": "2.0.2",
