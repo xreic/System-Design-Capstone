@@ -12,11 +12,13 @@
   },
   "dependencies": {
     "fastify": "2.13.0",
+    "mongoose": "^5.9.7",
     "nodemon": "2.0.2",
-    "pg": "8.0.0"
+    "pg": "^8.0.0"
   },
   "devDependencies": {
     "artillery": "1.6.0",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "faker": "^4.1.0"
   }
 }
