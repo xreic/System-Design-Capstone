@@ -1,7 +1,7 @@
 const nameModel = require('./mongo.js');
 const faker = require('faker');
 
-const upperLimit = 200000;
+const upperLimit = 100000;
 
 const generator = () => {
   return new Promise((resolve) =>
@@ -14,6 +14,16 @@ const generator = () => {
 async function seed() {
   for (let i = 1; i <= upperLimit; i++) {
     const set = await Promise.all([
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
       generator(),
       generator(),
       generator(),
