@@ -1,7 +1,5 @@
 # Project Name
 
-> Project description
-
 >For this project, we will be attempt to webscale and improve the response time of another group's FEC.
 
 ## Related Projects
@@ -13,9 +11,12 @@
 
 ## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+1. [Stats](#Stats)
+2. [Usage](#Usage)
+3. [Requirements](#requirements)
+4. [Development](#development)
+
+## [Stats](https://docs.google.com/spreadsheets/d/1S8Af02fTtTmnbA80wFej19aTLSGP5QH5kyQQp2dVEQc/)
 
 ## Usage
 
