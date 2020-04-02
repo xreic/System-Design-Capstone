@@ -1,0 +1,4 @@
+Commit: 57b5d5a
+  Duration: 35.662553833333334 minutes
+  Number of Records: 10,000,000
+

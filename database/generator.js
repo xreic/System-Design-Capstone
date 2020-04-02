@@ -1,7 +1,7 @@
 const nameModel = require('./mongo.js');
 const faker = require('faker');
 
-const upperLimit = 1000000;
+const upperLimit = 200000;
 
 const generator = () => {
   return new Promise((resolve) =>
