@@ -9,15 +9,15 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
-    "seed": "node database/generator.js",
-    "pregen": "node database/pregenerator.js"
+    "mongoSeed": "node database/mongo/mongoGen.js",
+    "mongoPreSeed": "node database/mongo/mongoPre.js"
   },
   "dependencies": {
     "fastify": "2.13.0",
     "mongodb": "3.5.5",
-    "mongoose": "^5.9.7",
+    "mongoose": "5.9.7",
     "nodemon": "2.0.2",
-    "pg": "^8.0.0"
+    "pg": "8.0.0"
   },
   "devDependencies": {
     "artillery": "1.6.0",

@@ -28,6 +28,6 @@ dist/
 config/config.js
 
 # Generated files
-database/pregen/items.js
-database/pregen/colors.js
-database/pregen/collection.js
+database/mongo/pregeneratedData/items.js
+database/mongo/pregeneratedData/colors.js
+database/mongo/pregeneratedData/collection.js
