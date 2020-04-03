@@ -1,0 +1,1 @@
+module.exports = ["fuchsia","green","maroon","orange","salmon","plum","white","turquoise","sky blue","salmon","olive","olive"]

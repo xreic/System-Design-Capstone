@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
-    "mongoI": "mongoimport -d fakeData -c names --file ./database/data2.txt"
+    "pregen": "node database/jsonDataWriter.js"
   },
   "dependencies": {
     "fastify": "2.13.0",

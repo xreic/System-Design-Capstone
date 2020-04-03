@@ -2,33 +2,22 @@
 const start = process.hrtime.bigint();
 
 // Dependencies
-const fs = require('fs');
 const faker = require('faker');
+const fs = require('fs');
 const path = require('path');
-
-const db = require('./mongo');
-const exec = require('child_process').exec;
-
-// fs.readFile(path.join(__dirname, 'data.txt'), 'utf8', (err, data) => {
-//   if (err) {
-//     console.error(err);
-//   } else {
-//     console.log(data);
-//   }
-// });
 
 // Base set
 const amountOfItems = 100000;
-const items = [];
+var items = [];
 const type = [
   "Men's Shoes",
   "Men's Running Shoes",
   "Women's Shoes",
   "Women's Running Shoes"
 ];
-const colors = [];
+var colors = [];
 
-const collection = faker.lorem.words(200).split(' ');
+var collection = faker.lorem.words(200).split(' ');
 
 const arraySeeder = () => {
   for (var i = 0; i < amountOfItems; i++) {
@@ -41,6 +30,22 @@ const arraySeeder = () => {
 
 arraySeeder();
 
+fs.appendFileSync(
+  path.join(__dirname, 'items.js'),
+  `module.exports = ${JSON.stringify(items)}`,
+  'utf8'
+);
+fs.appendFileSync(
+  path.join(__dirname, 'colors.js'),
+  `module.exports = ${JSON.stringify(colors)}`,
+  'utf8'
+);
+fs.appendFileSync(
+  path.join(__dirname, 'collection.js'),
+  `module.exports = ${JSON.stringify(collection)}`,
+  'utf8'
+);
+
 // Timer End
 const end = process.hrtime.bigint();
-console.log(`Finished in: ${parseInt(end - start, 10) / 1e9} seconds`);
+console.log(`Finished in: ${parseInt(end - start, 10) / 1e6} milliseconds`);

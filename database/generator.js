@@ -1,6 +1,11 @@
+// Dependencies
 const db = require('./mongo.js');
-
 const faker = require('faker');
+
+// Import Data
+const genItems = require('./items.js');
+const genColors = require('./colors.js');
+const genCollection = require('./collection.js');
 
 const upperLimit = 1e5;
 
@@ -18,18 +23,15 @@ const generator = () => {
       let colors = [];
 
       for (let i = 0; i < randLength; i++) {
-        colors.push(faker.commerce.color());
+        colors.push(genColors[Math.floor(Math.random() * 12)]);
       }
 
       resolve({
-        item: faker.commerce.product(),
+        item: genItems[Math.floor(Math.random() * 1e5)],
         type: type[Math.floor(Math.random() * 4)],
         price: faker.commerce.price(),
         colors,
-        image: Math.floor(Math.random() * 1000),
-        collection: faker.lorem
-          .words(Math.ceil(Math.random() * 5) + 3)
-          .split(' ')
+        image: Math.floor(Math.random() * 1000)
       });
     }, 0)
   );
@@ -147,7 +149,7 @@ async function seed() {
         if (i === upperLimit) {
           const end = process.hrtime.bigint();
           console.log(
-            `Finished in: ${parseInt(end - start, 10) / 1e6} milliseconds`
+            `Finished in: ${parseInt(end - start, 10) / 6e10} minutes`
           );
         }
       })
