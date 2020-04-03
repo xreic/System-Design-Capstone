@@ -1,7 +1,8 @@
-const nameModel = require('./mongo.js');
+const { db, nameModel } = require('./mongo.js');
+
 const faker = require('faker');
 
-const upperLimit = 40000;
+const upperLimit = 100000;
 
 const generator = () => {
   return new Promise((resolve) =>
@@ -63,10 +64,61 @@ async function seed() {
       generator(),
       generator(),
       generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
+      generator(),
       generator()
     ]);
 
-    await nameModel
+    await db
+      .collection('Names')
       .insertMany(set)
       .then((success) => {
         if (i === upperLimit) {
@@ -82,16 +134,3 @@ async function seed() {
 
 const start = process.hrtime.bigint();
 seed();
-
-/*
-generator(),
-generator(),
-generator(),
-generator(),
-generator(),
-generator(),
-generator(),
-generator(),
-generator(),
-generator(),
-*/

@@ -11,4 +11,4 @@ const nameSchema = mongoose.Schema({
 
 const nameModel = mongoose.model('Names', nameSchema);
 
-module.exports = nameModel;
+module.exports = { db, nameModel };
