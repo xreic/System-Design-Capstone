@@ -6,9 +6,13 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('Mongoose-d!'));
 
 const nameSchema = mongoose.Schema({
-  name: String
+  item: String,
+  type: String,
+  price: Number,
+  colors: String,
+  image: Number
 });
 
-const nameModel = mongoose.model('Names', nameSchema);
+const nameModel = mongoose.model('names', nameSchema);
 
-module.exports = { db, nameModel };
+module.exports = db;
