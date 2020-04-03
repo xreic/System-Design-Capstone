@@ -31,17 +31,17 @@ const arraySeeder = () => {
 arraySeeder();
 
 fs.appendFileSync(
-  path.join(__dirname, 'items.js'),
+  path.join(`${__dirname}/pregen/`, 'items.js'),
   `module.exports = ${JSON.stringify(items)}`,
   'utf8'
 );
 fs.appendFileSync(
-  path.join(__dirname, 'colors.js'),
+  path.join(`${__dirname}/pregen/`, 'colors.js'),
   `module.exports = ${JSON.stringify(colors)}`,
   'utf8'
 );
 fs.appendFileSync(
-  path.join(__dirname, 'collection.js'),
+  path.join(`${__dirname}/pregen/`, 'collection.js'),
   `module.exports = ${JSON.stringify(collection)}`,
   'utf8'
 );

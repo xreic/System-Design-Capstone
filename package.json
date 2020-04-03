@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
-    "pregen": "node database/jsonDataWriter.js"
+    "seed": "node database/generator.js",
+    "pregen": "node database/pregenerator.js"
   },
   "dependencies": {
     "fastify": "2.13.0",

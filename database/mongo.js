@@ -10,7 +10,8 @@ const nameSchema = mongoose.Schema({
   type: String,
   price: Number,
   colors: String,
-  image: Number
+  image: Number,
+  collections: String
 });
 
 const nameModel = mongoose.model('names', nameSchema);

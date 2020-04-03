@@ -19,19 +19,33 @@ const type = [
 const generator = () => {
   return new Promise((resolve) =>
     setTimeout(() => {
-      let randLength = Math.floor(Math.random() * 5);
-      let colors = [];
+      // Randomly select colors
+      let colors = {};
+      let colorsLength = Math.floor(Math.random() * 3) + 2;
 
-      for (let i = 0; i < randLength; i++) {
-        colors.push(genColors[Math.floor(Math.random() * 12)]);
+      for (let i = 0; i < colorsLength; i++) {
+        colors[genColors[Math.floor(Math.random() * 12)]] = 1;
       }
+
+      colors = JSON.stringify(Object.keys(colors));
+
+      // Randomly select collections
+      let collections = {};
+      let collectionsLength = Math.floor(Math.random() * 5) + 3;
+
+      for (let i = 0; i < collectionsLength; i++) {
+        collections[genCollection[Math.floor(Math.random() * 200)]] = 1;
+      }
+
+      collections = JSON.stringify(Object.keys(collections));
 
       resolve({
         item: genItems[Math.floor(Math.random() * 1e5)],
         type: type[Math.floor(Math.random() * 4)],
         price: faker.commerce.price(),
         colors,
-        image: Math.floor(Math.random() * 1000)
+        image: Math.floor(Math.random() * 1000),
+        collections
       });
     }, 0)
   );
