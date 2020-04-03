@@ -26,3 +26,8 @@ dist/
 
 # Keys
 config/config.js
+
+# Generated files
+database/items.js
+database/colors.js
+database/collection.js
