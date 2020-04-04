@@ -269,15 +269,9 @@ const generator = async () => {
     ]);
 
     //prettier-ignore
-    if (i % 25 === 0) {
-      let mid = process.hrtime.bigint();
-      console.log(`Iteration ${i}: ${(parseInt(mid - start, 10) / 1e9).toFixed(2)} seconds`);
-    }
-
-    //prettier-ignore
-    if ((i % (cycles - 1)) === 0) {
+    if (i === cycles - 1) {
       const end = process.hrtime.bigint();
-      console.log(`Finished in: ${(parseInt(end - start, 10) / 1e9).toFixed(2)} seconds`);
+      console.log(`Finished in: ${(parseInt(end - start, 10) / 6e10).toFixed(2)} minutes`);
     }
   }
 })();

@@ -157,14 +157,13 @@ async function seed() {
     ]);
 
     await db
-      .collection('Names')
+      .collection('names')
       .insertMany(set)
       .then((success) => {
         if (i === upperLimit) {
           const end = process.hrtime.bigint();
-          console.log(
-            `Finished in: ${parseInt(end - start, 10) / 6e10} minutes`
-          );
+          //prettier-ignore
+          console.log(`Finished in: ${(parseInt(end - start, 10) / 6e10).toFixed(2)} minutes`);
         }
       })
       .catch((err) => {
