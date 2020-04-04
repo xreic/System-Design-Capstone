@@ -1,5 +1,4 @@
 const { Client } = require('pg');
-const copyFrom = require('pg-copy-streams').from;
 
 const URL = 'postgres://postgres:postgres@localhost:5432/postgres';
 const client = new Client(URL);
@@ -34,5 +33,3 @@ async function connector() {
 connector();
 
 module.exports = client;
-
-// COPY data (item, type, price ,image, colors, collections) FROM 'F:\Work\HackReactor\SDC\SDC\database\pregeneratedData\data.txt' WITH DELIMITER '_';
