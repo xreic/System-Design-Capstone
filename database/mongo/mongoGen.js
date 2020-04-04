@@ -157,7 +157,7 @@ async function seed() {
     ]);
 
     await db
-      .collection('names')
+      .collection('names2')
       .insertMany(set)
       .then((success) => {
         if (i === upperLimit) {
