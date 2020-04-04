@@ -9,8 +9,10 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
+    "dataGen": "node database/preGen.js",
     "mongoSeed": "node database/mongo/mongoGen.js",
-    "mongoPreSeed": "node database/mongo/mongoPre.js"
+    "pSQLInit": "node database/postgres/postgres.js",
+    "pSQLPreSeed": "node database/postgres/postgresGen.js"
   },
   "dependencies": {
     "fastify": "2.13.0",

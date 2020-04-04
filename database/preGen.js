@@ -9,12 +9,6 @@ const path = require('path');
 // Base set
 const amountOfItems = 100000;
 var items = [];
-const type = [
-  "Men's Shoes",
-  "Men's Running Shoes",
-  "Women's Shoes",
-  "Women's Running Shoes"
-];
 var colors = [];
 
 var collection = faker.lorem.words(200).split(' ');

@@ -3,9 +3,9 @@ const db = require('./mongo.js');
 const faker = require('faker');
 
 // Import Data
-const genItems = require('./pregeneratedData/items.js');
-const genColors = require('./pregeneratedData/colors.js');
-const genCollection = require('./pregeneratedData/collection.js');
+const genItems = require('../pregeneratedData/items.js');
+const genColors = require('../pregeneratedData/colors.js');
+const genCollection = require('../pregeneratedData/collection.js');
 
 const upperLimit = 1e5;
 
