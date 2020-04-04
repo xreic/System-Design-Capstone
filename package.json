@@ -11,19 +11,20 @@
     "start": "nodemon server/index.js",
     "dataGen": "node database/preGen.js",
     "mongoSeed": "node database/mongo/mongoGen.js",
-    "pSQLInit": "node database/postgres/postgres.js",
-    "pSQLPreSeed": "node database/postgres/postgresGen.js"
+    "pSQLPreSeed": "node database/postgres/postgresGen.js",
+    "pSQLInit": "node database/postgres/postgres.js && node database/postgres/postgresCopy.js"
   },
   "dependencies": {
     "fastify": "2.13.0",
     "mongodb": "3.5.5",
     "mongoose": "5.9.7",
     "nodemon": "2.0.2",
-    "pg": "8.0.0"
+    "pg": "8.0.0",
+    "pg-copy-streams": "2.2.2"
   },
   "devDependencies": {
     "artillery": "1.6.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "faker": "^4.1.0"
+    "faker": "4.1.0"
   }
 }

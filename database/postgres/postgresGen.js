@@ -3,6 +3,7 @@ const start = process.hrtime.bigint();
 
 // Dependencies
 const faker = require('faker');
+
 const fs = require('fs').promises;
 const path = require('path');
 
@@ -18,6 +19,8 @@ const shoeTypes = [
   "Women's Shoes",
   "Women's Running Shoes"
 ];
+
+const location = path.join(__dirname, '../pregeneratedData/data.txt');
 
 // Looped file append
 const cycles = 5000;
@@ -57,11 +60,7 @@ const generator = async () => {
     );
   }
 
-  return fs.appendFile(
-    path.join(__dirname, '../pregeneratedData/data.txt'),
-    storage.join('\n') + '\n',
-    'utf8'
-  );
+  return fs.appendFile(location, storage.join('\n') + '\n', 'utf8');
 };
 
 (async () => {

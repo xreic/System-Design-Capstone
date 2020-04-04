@@ -1,4 +1,5 @@
 const { Client } = require('pg');
+const copyFrom = require('pg-copy-streams').from;
 
 const URL = 'postgres://postgres:postgres@localhost:5432/postgres';
 const client = new Client(URL);

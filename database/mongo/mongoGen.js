@@ -27,7 +27,7 @@ const generator = () => {
         colors[genColors[Math.floor(Math.random() * 12)]] = 1;
       }
 
-      colors = JSON.stringify(Object.keys(colors));
+      colors = Object.keys(colors);
 
       // Randomly select collections
       let collections = {};
@@ -37,7 +37,7 @@ const generator = () => {
         collections[genCollection[Math.floor(Math.random() * 200)]] = 1;
       }
 
-      collections = JSON.stringify(Object.keys(collections));
+      collections = Object.keys(collections);
 
       resolve({
         item: genItems[Math.floor(Math.random() * 1e5)],
