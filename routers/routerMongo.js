@@ -9,8 +9,10 @@ const db = require('../database/mongo/mongo.js');
 const collection = db.collection('names');
 
 router.get('/search/:keyword', async (ctx) => {
-  const keyword = ctx.request.url.substring(8);
+  var keyword = ctx.request.url.substring(8);
+  keyword = keyword.split('%20').join(' ');
   console.log(keyword);
+
   try {
     // Timer start
     let start = process.hrtime.bigint();
