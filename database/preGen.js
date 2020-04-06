@@ -4,6 +4,7 @@ const start = process.hrtime.bigint();
 // Dependencies
 const faker = require('faker');
 const fs = require('fs');
+const fsP = require('fs').promises;
 const path = require('path');
 
 // Base set
@@ -24,20 +25,46 @@ const arraySeeder = () => {
 
 arraySeeder();
 
-fs.appendFileSync(
+fs.unlink(
   path.join(`${__dirname}/pregeneratedData/`, 'items.js'),
-  `module.exports = ${JSON.stringify(items)}`,
-  'utf8'
+  async (err) => {
+    if (err) {
+      console.log('Writing items.js...');
+    }
+    await fsP.appendFile(
+      path.join(`${__dirname}/pregeneratedData/`, 'items.js'),
+      `module.exports = ${JSON.stringify(items)};`,
+      'utf8'
+    );
+  }
 );
-fs.appendFileSync(
+
+fs.unlink(
   path.join(`${__dirname}/pregeneratedData/`, 'colors.js'),
-  `module.exports = ${JSON.stringify(colors)}`,
-  'utf8'
+  async (err) => {
+    if (err) {
+      console.log('Writing colors.js...');
+    }
+    await fsP.appendFile(
+      path.join(`${__dirname}/pregeneratedData/`, 'colors.js'),
+      `module.exports = ${JSON.stringify(colors)};`,
+      'utf8'
+    );
+  }
 );
-fs.appendFileSync(
+
+fs.unlink(
   path.join(`${__dirname}/pregeneratedData/`, 'collection.js'),
-  `module.exports = ${JSON.stringify(collection)}`,
-  'utf8'
+  async (err) => {
+    if (err) {
+      console.log('Writing collection.js...');
+    }
+    await fsP.appendFile(
+      path.join(`${__dirname}/pregeneratedData/`, 'collection.js'),
+      `module.exports = ${JSON.stringify(collection)};`,
+      'utf8'
+    );
+  }
 );
 
 // Timer End

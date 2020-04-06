@@ -18,7 +18,7 @@ async function connector() {
         price text NOT NULL,
         image text NOT NULL,
         colors text[] NOT NULL,
-        collections text[] NOT NULL
+        collections jsonb NOT NULL
         );`);
     console.log('Table');
   } catch (err) {

@@ -28,7 +28,4 @@ dist/
 config/config.js
 
 # Generated files
-database/pregeneratedData/items.js
-database/pregeneratedData/colors.js
-database/pregeneratedData/collection.js
-database/pregeneratedData/data.txt
+database/pregeneratedData/*

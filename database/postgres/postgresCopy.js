@@ -12,7 +12,7 @@ const pool = new Pool({
   database: 'postgres'
 });
 
-const location = path.join(__dirname, '../pregeneratedData/data.txt');
+const location = path.join(__dirname, '../pregeneratedData/data2.txt');
 
 pool.connect(function (err, client, done) {
   if (err) {
