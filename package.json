@@ -15,7 +15,7 @@
     "mServer": "nodemon server/mongo/index.js",
     "//": "pSQL",
     "pGen": "node database/postgres/postgresGen.js",
-    "pSeeder": "node database/postgres/postgres.js && node database/postgres/postgres.js && node database/postgres/postgresCopy.js",
+    "pSeed": "node database/postgres/postgres.js && node database/postgres/postgres.js && node database/postgres/postgresCopy.js",
     "pServer": "nodemon server/postgres/index.js"
   },
   "dependencies": {

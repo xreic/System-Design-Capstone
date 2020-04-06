@@ -61,7 +61,7 @@ const generator = async () => {
     let price = faker.commerce.price();
     let image = Math.floor(Math.random() * 1000);
     storage.push(
-      `{"item": "${item}", "type": "${type}", "price": ${price}, "image": ${image}, "colors": ${colors}, "collections": ${collections}}`
+      `{"item": "${item}", "type": ["${type}"], "price": ${price}, "image": ${image}, "colors": ${colors}, "collections": ${collections}}`
     );
   }
 

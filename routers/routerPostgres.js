@@ -11,22 +11,22 @@ const client = new Client(URL);
 (async () => {
   try {
     await client.connect();
-  } catch (err) {
-    await client.connect();
-  }
+  } catch (err) {}
 })();
 
 // Declarations
 
 router.get('/search/:keyword', async (ctx) => {
-  const keyword = ctx.request.url.substring(8);
-  console.log(keyword);
+  var keyword = ctx.request.url.substring(8);
+  keyword = keyword.split('%20').join(' ');
+  keyword = keyword.split(`'`).join(`''`);
+
   try {
     // Timer start
     let start = process.hrtime.bigint();
 
     const data = await client.query(
-      `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' LIMIT 50;`
+      `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '%${keyword}%' LIMIT 50;`
     );
 
     const dataSet = [];
