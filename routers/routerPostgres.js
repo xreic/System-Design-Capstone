@@ -18,8 +18,8 @@ const client = new Client(URL);
 
 router.get('/search/:keyword', async (ctx) => {
   var keyword = ctx.request.url.substring(8);
-  keyword = keyword.split('%20').join(' ');
-  keyword = keyword.split(`'`).join(`''`);
+  keyword = keyword.split('%20').join(' ').split(`'`).join(`''`);
+  console.log(keyword);
 
   try {
     // Timer start

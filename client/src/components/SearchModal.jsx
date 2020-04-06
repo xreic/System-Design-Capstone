@@ -123,7 +123,7 @@ export default class SearchModal extends React.Component {
               {this.state.productCount < 50 ? (
                 <div id="view-all">View All ({this.state.productCount})</div>
               ) : (
-                <div id="view-all">View All ({this.state.productCount})+</div>
+                <div id="view-all">View All ({this.state.productCount}+)</div>
               )}
             </div>
           </div>
