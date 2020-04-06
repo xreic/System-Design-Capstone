@@ -8,18 +8,28 @@ const fsP = require('fs').promises;
 const path = require('path');
 
 // Base set
-const amountOfItems = 100000;
-var items = [];
-var colors = [];
-
-var collection = faker.lorem.words(200).split(' ');
+const items = {};
+const colors = {};
+const collections = {};
 
 const arraySeeder = () => {
-  for (var i = 0; i < amountOfItems; i++) {
-    items.push(faker.commerce.productName());
+  // Generate fake product names
+  while (Object.keys(items).length !== 4000) {
+    items[faker.commerce.productName()] = 1;
   }
-  for (var j = 0; j < 12; j++) {
-    colors.push(faker.commerce.color());
+
+  // Generate colors
+  while (Object.keys(colors).length !== 20) {
+    colors[faker.commerce.color()] = 1;
+  }
+
+  // Generate lorem ispum words to use for collection
+  const collection = faker.lorem.words(1000).split(' ');
+  var counter = 0;
+
+  while (counter < collection.length) {
+    collections[collection[counter]] = 1;
+    counter++;
   }
 };
 
@@ -33,7 +43,7 @@ fs.unlink(
     }
     await fsP.appendFile(
       path.join(`${__dirname}/pregeneratedData/`, 'items.js'),
-      `module.exports = ${JSON.stringify(items)};`,
+      `module.exports = ${JSON.stringify(Object.keys(items))};`,
       'utf8'
     );
   }
@@ -47,7 +57,7 @@ fs.unlink(
     }
     await fsP.appendFile(
       path.join(`${__dirname}/pregeneratedData/`, 'colors.js'),
-      `module.exports = ${JSON.stringify(colors)};`,
+      `module.exports = ${JSON.stringify(Object.keys(colors))};`,
       'utf8'
     );
   }
@@ -61,7 +71,7 @@ fs.unlink(
     }
     await fsP.appendFile(
       path.join(`${__dirname}/pregeneratedData/`, 'collection.js'),
-      `module.exports = ${JSON.stringify(collection)};`,
+      `module.exports = ${JSON.stringify(Object.keys(collections))};`,
       'utf8'
     );
   }

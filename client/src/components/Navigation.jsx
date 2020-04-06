@@ -86,8 +86,6 @@ class Navigation extends React.Component{
     }
 }
 
-// ReactDOM.render(<Navigation />, document.getElementById('header'));
-
 export default Navigation;
 
 

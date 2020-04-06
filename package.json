@@ -10,10 +10,11 @@
   "scripts": {
     "start": "webpack -d --watch",
     "mongoServer": "nodemon server/mongo/index.js",
+    "pSQLServer": "nodemon server/postgres/index.js",
     "dataGen": "node database/preGen.js",
     "mongoSeed": "node database/mongo/mongoGen.js",
-    "pSQLPreSeed": "node database/postgres/postgresGen.js",
-    "pSQLInit": "node database/postgres/postgres.js && node database/postgres/postgresCopy.js"
+    "pSQLGen": "node database/postgres/postgresGen.js",
+    "pSQLSeed": "node database/postgres/postgres.js && node database/postgres/postgresCopy.js"
   },
   "dependencies": {
     "@koa/router": "8.0.8",

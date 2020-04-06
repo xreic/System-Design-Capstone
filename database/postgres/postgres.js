@@ -11,15 +11,7 @@ async function connector() {
     await client.query('DROP TABLE IF EXISTS data;');
     console.log('Dropped');
 
-    await client.query(`CREATE TABLE IF NOT EXISTS data (
-        id SERIAL PRIMARY KEY,
-        item text NOT NULL,
-        type text NOT NULL,
-        price text NOT NULL,
-        image text NOT NULL,
-        colors text[] NOT NULL,
-        collections jsonb NOT NULL
-        );`);
+    await client.query(`CREATE TABLE IF NOT EXISTS data (data jsonb NOT NULL);`);
     console.log('Table');
   } catch (err) {
     await client.end();
@@ -33,3 +25,9 @@ async function connector() {
 connector();
 
 module.exports = client;
+
+// item text NOT NULL,
+// type text NOT NULL,
+// price text NOT NULL,
+// image text NOT NULL,
+// colors text[] NOT NULL,
