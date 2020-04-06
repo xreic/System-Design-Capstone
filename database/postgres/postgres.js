@@ -3,10 +3,6 @@ const { Client } = require('pg');
 const URL = 'postgres://postgres:postgres@localhost:5432/postgres';
 const client = new Client(URL);
 
-(async() => {
-  await client.connect()
-})
-
 (async () => {
   try {
     await client.connect();
@@ -15,9 +11,11 @@ const client = new Client(URL);
     await client.query('DROP TABLE IF EXISTS data;');
     console.log('Dropped');
 
-    await client.query(
-      `CREATE TABLE IF NOT EXISTS data (data jsonb NOT NULL);`
-    );
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS data (
+        id SERIAL PRIMARY KEY,
+        data jsonb NOT NULL);
+    `);
     console.log('Table');
   } catch (err) {
     await client.end();
