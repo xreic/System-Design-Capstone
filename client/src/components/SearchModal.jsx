@@ -120,7 +120,11 @@ export default class SearchModal extends React.Component {
                 productCount={this.state.productCount}
                 handleChange={this.props.handleChange}
               />
-              <div id="view-all">View All ({this.state.productCount})</div>
+              {this.state.productCount < 50 ? (
+                <div id="view-all">View All ({this.state.productCount})</div>
+              ) : (
+                <div id="view-all">View All ({this.state.productCount})+</div>
+              )}
             </div>
           </div>
           <div className="match-suggestions">

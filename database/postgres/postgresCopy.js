@@ -1,3 +1,6 @@
+// Timer Start
+const start = process.hrtime.bigint();
+
 const fs = require('fs');
 const path = require('path');
 
@@ -12,7 +15,7 @@ const pool = new Pool({
   database: 'postgres'
 });
 
-const location = path.join(__dirname, '../pregeneratedData/data2.txt');
+const location = path.join(__dirname, '../pregeneratedData/data.txt');
 
 pool.connect(function (err, client, done) {
   if (err) {
@@ -23,6 +26,12 @@ pool.connect(function (err, client, done) {
     var fileStream = fs.createReadStream(location);
     fileStream.on('error', done);
     stream.on('error', done);
+    stream.on('end', () => {
+      // Timer End
+      const end = process.hrtime.bigint();
+      //prettier-ignore
+      console.log(`Base set of data created in: ${(parseInt(end - start, 10) / 1e9).toFixed(2)} seconds!`);
+    });
     stream.on('end', done);
     fileStream.pipe(stream);
   }

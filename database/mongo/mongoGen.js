@@ -24,7 +24,7 @@ const generator = () => {
       let colorsLength = Math.floor(Math.random() * 3) + 2;
 
       for (let i = 0; i < colorsLength; i++) {
-        colors[genColors[Math.floor(Math.random() * 12)]] = 1;
+        colors[genColors[Math.floor(Math.random() * genColors.length)]] = 1;
       }
 
       colors = Object.keys(colors);
@@ -34,14 +34,16 @@ const generator = () => {
       let collectionsLength = Math.floor(Math.random() * 5) + 3;
 
       for (let i = 0; i < collectionsLength; i++) {
-        collections[genCollection[Math.floor(Math.random() * 200)]] = 1;
+        collections[
+          genCollection[Math.floor(Math.random() * genCollection.length)]
+        ] = 1;
       }
 
       collections = Object.keys(collections);
 
       resolve({
-        item: genItems[Math.floor(Math.random() * 1e5)],
-        type: type[Math.floor(Math.random() * 4)],
+        item: genItems[Math.floor(Math.random() * genItems.length)],
+        type: type[Math.floor(Math.random() * type.length)],
         price: faker.commerce.price(),
         colors,
         image: Math.floor(Math.random() * 1000),
@@ -157,7 +159,7 @@ async function seed() {
     ]);
 
     await db
-      .collection('names2')
+      .collection('names')
       .insertMany(set)
       .then((success) => {
         if (i === upperLimit) {

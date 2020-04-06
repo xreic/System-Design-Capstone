@@ -3,7 +3,7 @@ const Router = require('@koa/router');
 const router = new Router();
 
 // Database connection
-const db = require('../../database/mongo/mongo.js');
+const db = require('../database/mongo/mongo.js');
 
 // Declarations
 const collection = db.collection('names');
@@ -22,7 +22,7 @@ router.get('/search/:keyword', async (ctx) => {
           { collections: { $regex: keyword, $options: 'i' } }
         ]
       })
-      .limit(6)
+      .limit(50)
       .sort({ _id: -1 })
       .toArray();
 

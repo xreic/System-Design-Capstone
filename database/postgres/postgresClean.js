@@ -3,10 +3,6 @@ const { Client } = require('pg');
 const URL = 'postgres://postgres:postgres@localhost:5432/postgres';
 const client = new Client(URL);
 
-(async() => {
-  await client.connect()
-})
-
 (async () => {
   try {
     await client.connect();
@@ -27,3 +23,9 @@ const client = new Client(URL);
     console.log('End');
   }
 })();
+
+// item text NOT NULL,
+// type text NOT NULL,
+// price text NOT NULL,
+// image text NOT NULL,
+// colors text[] NOT NULL,

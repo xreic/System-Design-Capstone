@@ -20,7 +20,7 @@ const shoeTypes = [
   "Women's Running Shoes"
 ];
 
-const location = path.join(__dirname, '../pregeneratedData/data2.txt');
+const location = path.join(__dirname, '../pregeneratedData/data.txt');
 
 // Looped file append
 const cycles = 5000;
@@ -34,25 +34,25 @@ const generator = async () => {
     let colorsLength = Math.floor(Math.random() * 3) + 2;
 
     for (let i = 0; i < colorsLength; i++) {
-      colors[genColors[Math.floor(Math.random() * 12)]] = 1;
+      colors[genColors[Math.floor(Math.random() * genColors.length)]] = 1;
     }
 
     colors = JSON.stringify(Object.keys(colors));
-    // colors = colors.substring(1, colors.length - 1);
 
     // Randomly select collections
     let collections = {};
     let collectionsLength = Math.floor(Math.random() * 5) + 3;
 
     for (let i = 0; i < collectionsLength; i++) {
-      collections[genCollection[Math.floor(Math.random() * 200)]] = 1;
+      collections[
+        genCollection[Math.floor(Math.random() * genCollection.length)]
+      ] = 1;
     }
 
     collections = JSON.stringify(Object.keys(collections));
-    // collections = collections.substring(1, collections.length - 1);
 
-    let item = genItems[Math.floor(Math.random() * 1e5)];
-    let type = shoeTypes[Math.floor(Math.random() * 4)];
+    let item = genItems[Math.floor(Math.random() * genItems.length)];
+    let type = shoeTypes[Math.floor(Math.random() * shoeTypes.length)];
     let price = faker.commerce.price();
     let image = Math.floor(Math.random() * 1000);
     storage.push(
