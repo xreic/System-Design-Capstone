@@ -79,4 +79,5 @@ fs.unlink(
 
 // Timer End
 const end = process.hrtime.bigint();
-console.log(`Finished in: ${parseInt(end - start, 10) / 1e6} milliseconds`);
+//prettier-ignore
+console.log(`Base set of data created in: ${(parseInt(end - start, 10) / 1e9).toFixed(2)} seconds!`);

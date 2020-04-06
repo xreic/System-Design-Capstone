@@ -8,13 +8,15 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "webpack -d --watch",
-    "mongoServer": "nodemon server/mongo/index.js",
-    "pSQLServer": "nodemon server/postgres/index.js",
-    "dataGen": "node database/preGen.js",
-    "mongoSeed": "node database/mongo/mongoGen.js",
-    "pSQLGen": "node database/postgres/postgresGen.js",
-    "pSQLSeed": "node database/postgres/postgres.js && node database/postgres/postgresCopy.js"
+    "react": "webpack -d",
+    "data": "node database/fakerMaker.js",
+    "//": "MongoDB",
+    "mSeed": "node database/mongo/mongoGen.js",
+    "mServer": "nodemon server/mongo/index.js",
+    "//": "pSQL",
+    "pGen": "node database/postgres/postgresGen.js",
+    "pSeeder": "node database/postgres/postgres.js && node database/postgres/postgresCopy.js",
+    "pServer": "nodemon server/postgres/index.js"
   },
   "dependencies": {
     "@koa/router": "8.0.8",
