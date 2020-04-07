@@ -37,19 +37,21 @@ Before testing, run the set of commands from the root directory for the desired 
 
 MongoDB
 ```sh
+npm install
 npm run data
 npm run mSeed
 ```
 
 PostgreSQL
 ```sh
+npm install
 npm run data
 npm run pSeed
 ```
 
 ### Installing Dependencies
 
-From within the root directory:
+From within the root directory for the desired DMBS:
 
 Mongo
 ```sh
@@ -58,7 +60,6 @@ npm run data
 npm run react
 npm run mSeed
 npm run mServer
-
 ```
 
 pSQL
