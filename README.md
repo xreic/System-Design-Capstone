@@ -33,21 +33,17 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ### Testing
 
-Before testing, run from the root directory:
-
-```sh
-npm run data
-```
-
-then run for the corresponding DBMS of choice and change "xdescribe" to "describe"
+Before testing, run the set of commands from the root directory for the desired DMBS:
 
 MongoDB
 ```sh
+npm run data
 npm run mSeed
 ```
 
 PostgreSQL
 ```sh
+npm run data
 npm run pSeed
 ```
 
