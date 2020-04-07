@@ -31,6 +31,26 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ## Development
 
+### Testing
+
+Before testing, run from the root directory:
+
+```sh
+npm run data
+```
+
+then run for the corresponding DBMS of choice and change "xdescribe" to "describe"
+
+MongoDB
+```sh
+npm run mSeed
+```
+
+PostgreSQL
+```sh
+npm run pSeed
+```
+
 ### Installing Dependencies
 
 From within the root directory:
