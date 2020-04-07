@@ -35,7 +35,22 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 From within the root directory:
 
+Mongo
 ```sh
-npm install -g webpack
 npm install
+npm run data
+npm run react
+npm run mSeed
+npm run mServer
+
+```
+
+pSQL
+```sh
+npm install
+npm run data
+npm run react
+npm run pGen
+npm run pSeed
+npm run pServer
 ```
