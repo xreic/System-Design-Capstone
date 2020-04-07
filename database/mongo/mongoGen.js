@@ -166,6 +166,7 @@ async function seed() {
           const end = process.hrtime.bigint();
           //prettier-ignore
           console.log(`Finished in: ${(parseInt(end - start, 10) / 6e10).toFixed(2)} minutes`);
+          db.disconnect();
         }
       })
       .catch((err) => {

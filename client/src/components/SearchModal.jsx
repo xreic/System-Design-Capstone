@@ -5,7 +5,7 @@ import exit from '../../dist/assets/exit.png';
 
 let collections = [
   ...require('../../../database/pregeneratedData/collection.js'),
-  ...["Men's Shoe", "Women's Shoe", 'Running', 'Run']
+  ...["Men's Shoe", "Women's Shoe", "Running", "Run"]
 ];
 
 export default class SearchModal extends React.Component {

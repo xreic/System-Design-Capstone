@@ -17,14 +17,15 @@ const client = new Client(URL);
 // Declarations
 
 router.get('/search/:keyword', async (ctx) => {
+  // Timer start
+  let start = process.hrtime.bigint();
+  
   var keyword = ctx.request.url.substring(8);
-  keyword = keyword.split('%20').join(' ').split(`'`).join(`''`);
-  console.log(keyword);
+  keyword = keyword.split('%20').join(' ');
+  keyword = keyword.split(`'`).join(`''`);
+  // console.log(keyword);
 
   try {
-    // Timer start
-    let start = process.hrtime.bigint();
-
     const data = await client.query(
       `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '%${keyword}%' LIMIT 50;`
     );
@@ -41,7 +42,7 @@ router.get('/search/:keyword', async (ctx) => {
     // Timer end
     let end = process.hrtime.bigint();
     console.log(
-      `Finished in: ${(parseInt(end - start, 10) / 1e6).toFixed(2)} ms`
+      `${keyword} in: ${(parseInt(end - start, 10) / 1e6).toFixed(2)} ms`
     );
   } catch (err) {
     ctx.body = err;
