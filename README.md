@@ -53,7 +53,7 @@ npm run pSeed
 
 From within the root directory for the desired DMBS:
 
-Mongo
+MongoDB
 ```sh
 npm install
 npm run data
@@ -62,7 +62,7 @@ npm run mSeed
 npm run mServer
 ```
 
-pSQL
+PostgreSQL
 ```sh
 npm install
 npm run data
