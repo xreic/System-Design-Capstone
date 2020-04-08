@@ -5,6 +5,11 @@ const path = require('path');
 // MongoDB
 const mongoose = require('mongoose');
 
+// PostgreSQL
+const { Client } = require('pg');
+const URL = 'postgres://postgres:postgres@localhost:5432/postgres';
+const client = new Client(URL);
+
 describe('Verifying base data set generator in working order', () => {
   test('Checks base data set exists', () => {
     let files = fs.readdirSync(
@@ -50,26 +55,29 @@ describe('Verifying base data set generator in working order', () => {
   });
 });
 
-describe('Verify MongoDB Seeded', () => {
-  beforeAll(async (done) => {
+describe.skip('Verify MongoDB Seeded', () => {
+  test('Verify if seeder functionality', async () => {
     await mongoose.connect('mongodb://127.0.0.1/fakeData', {
       useNewUrlParser: true
     });
-
-    done();
-  });
-
-  test('Verify if seeder functionality', async () => {
     let db = await mongoose.connection;
 
     let contents = await db.collection('names').find({}).count();
     console.log(contents);
 
     expect(contents).toEqual(10000000);
-  });
-
-  afterAll(async (done) => {
     await mongoose.disconnect();
-    done();
+  });
+});
+
+describe('Verify PostgreSQL Seeded', () => {
+  test('Verify if seeder functionality', async () => {
+    await client.connect();
+    let contents = await client.query('SELECT COUNT(*) FROM data;');
+
+    contents = parseInt(contents.rows[0].count, 10);
+
+    expect(contents).toEqual(10000000);
+    await client.end();
   });
 });
