@@ -131,22 +131,32 @@ describe('Verify PostgreSQL Seeded', () => {
     let keyword = collection[Math.floor(Math.random() * collection.length)];
 
     let contents = await client.query(
-      `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '%${keyword}%' LIMIT 1;`
+      `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '%${keyword}%' LIMIT 50;`
     );
-    contents = Object.keys(contents.rows[0].data);
 
-    expect(contents.length).toBe(6);
+    const dataSet = [];
+
+    for (var item of contents.rows) {
+      dataSet.push(item.data);
+    }
+
+    expect(dataSet.length).toBe(50);
   });
 
   test(`Verify a query against the "type" column executes properly`, async () => {
     let keyword = type[Math.floor(Math.random() * type.length)];
 
     let contents = await client.query(
-      `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '%${keyword}%' LIMIT 1;`
+      `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '%${keyword}%' LIMIT 50;`
     );
-    contents = Object.keys(contents.rows[0].data);
 
-    expect(contents.length).toBe(6);
+    const dataSet = [];
+
+    for (var item of contents.rows) {
+      dataSet.push(item.data);
+    }
+
+    expect(dataSet.length).toBe(50);
     await client.end();
   });
 });
