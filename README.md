@@ -32,7 +32,8 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 ## Development
 
 ### Testing
-Before testing, run the set of commands from the root directory for the desired DMBS:
+Before testing, run the set of commands from the root directory for the
+  desired DMBS and change "xdescribe" to "describe" in the test.js:
 
 MongoDB
 ```sh
