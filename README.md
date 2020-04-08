@@ -24,11 +24,11 @@
 * Install the dependencies for each
 * Run one of the following commands depending on DMBS of choice
 
-**MongoDB**
-> npm run mServer
-
 **PostgresSQL**
 > npm run pServer
+
+**MongoDB**
+> npm run mServer
 
 ## Requirements
 
@@ -41,34 +41,27 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ### Testing
 Before testing, do the following:
-* Change "xdescribe" to "describe" in the test file for the DMBS of choice
-* Run one of the sets of commands below
-* Finally, run ***npm test***
+  * Remove the .skip for the DBMS of choice
+  * Run one of the sets of commands below
+  * Finally, run ***npm test***
 
-**MongoDB**
-```sh
-npm install
-npm run data
-npm run mSeed
-```
 **PostgreSQL**
 ```sh
 npm install
 npm run data
 npm run pSeed
 ```
+**MongoDB**
+```sh
+npm install
+npm run data
+npm run mSeed
+```
 
 ### Installing Dependencies
 
 From within the root directory for the desired DMBS:
 
-**MongoDB**
-```sh
-npm install
-npm run data
-npm run react
-npm run mSeed
-```
 **PostgreSQL**
 ```sh
 npm install
@@ -76,4 +69,11 @@ npm run data
 npm run react
 npm run pGen
 npm run pSeed
+```
+**MongoDB**
+```sh
+npm install
+npm run data
+npm run react
+npm run mSeed
 ```
