@@ -4,7 +4,6 @@ const router = new Router();
 const { Client } = require('pg');
 
 // Database connection
-
 const URL = 'postgres://postgres:postgres@localhost:5432/postgres';
 const client = new Client(URL);
 
@@ -14,12 +13,10 @@ const client = new Client(URL);
   } catch (err) {}
 })();
 
-// Declarations
-
 router.get('/search/:keyword', async (ctx) => {
   // Timer start
   let start = process.hrtime.bigint();
-  
+
   var keyword = ctx.request.url.substring(8);
   keyword = keyword.split('%20').join(' ');
   keyword = keyword.split(`'`).join(`''`);

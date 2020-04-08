@@ -1,15 +1,15 @@
 config:
-  target: "http://localhost:3001"
+  target: "http://localhost:3000"
   phases:
     - duration: 60
-      arrivalRate: 3000
+      arrivalRate: 200
   variables:
     productIds:
-      # - ["soluta","delectus","eligendi"]
+      - ["soluta","delectus","eligendi", "adipisci","quod","minus","tempore","ut","eum","fugiat","perspiciatis"]
 scenarios:
   - flow:
-      # - loop:
+      - loop:
           - get:
-              # url: "/search/{{ $loopElement }}"
-              url: "/search/eligendi"
-        # over: productIds
+              url: "/search/{{ $loopElement }}"
+              # url: "/search/eligendi"
+        over: productIds
