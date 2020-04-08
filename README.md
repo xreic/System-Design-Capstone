@@ -32,6 +32,10 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 ## Development
 
 ### Testing
+To test, from the root directory run:
+```sh
+npm test
+```
 
 Before testing, run the set of commands from the root directory for the desired DMBS:
 
