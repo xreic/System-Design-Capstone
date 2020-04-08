@@ -32,9 +32,10 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 ## Development
 
 ### Testing
-Before testing, run the set of commands from the root directory for the
-
-desired DMBS and change "xdescribe" to "describe" in the test.js:
+Before testing, do the following:
+* Change "xdescribe" to "describe" in the test file for the DMBS of choice
+* Run one of the sets of commands below
+* Finally, run [npm test]
 
 MongoDB
 ```sh
@@ -47,12 +48,6 @@ PostgreSQL
 npm install
 npm run data
 npm run pSeed
-```
-
-To test, from the root directory run:
-
-```sh
-npm test
 ```
 
 ### Installing Dependencies
