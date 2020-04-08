@@ -35,7 +35,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 Before testing, do the following:
 * Change "xdescribe" to "describe" in the test file for the DMBS of choice
 * Run one of the sets of commands below
-* Finally, run [npm test]
+* Finally, run ***npm test***
 
 MongoDB
 ```sh
