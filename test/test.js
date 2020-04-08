@@ -10,6 +10,10 @@ const { Client } = require('pg');
 const URL = 'postgres://postgres:postgres@localhost:5432/postgres';
 const client = new Client(URL);
 
+// Base data set loading
+const type = ["Men's Shoe", "Women's Shoe", 'Running', 'Run'];
+const collection = require('../database/pregeneratedData/collection.js');
+
 describe('Verifying base data set generator in working order', () => {
   test('Checks base data set exists', () => {
     let files = fs.readdirSync(
@@ -78,6 +82,28 @@ describe('Verify PostgreSQL Seeded', () => {
     contents = parseInt(contents.rows[0].count, 10);
 
     expect(contents).toEqual(10000000);
+  });
+
+  test(`Verify a query against the "collections" column executes properly`, async () => {
+    let keyword = collection[Math.floor(Math.random() * collection.length)];
+
+    let contents = await client.query(
+      `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '%${keyword}%' LIMIT 1;`
+    );
+    contents = Object.keys(contents.rows[0].data);
+
+    expect(contents.length).toBe(6);
+  });
+
+  test(`Verify a query against the "type" column executes properly`, async () => {
+    let keyword = type[Math.floor(Math.random() * type.length)];
+
+    let contents = await client.query(
+      `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '%${keyword}%' LIMIT 1;`
+    );
+    contents = Object.keys(contents.rows[0].data);
+
+    expect(contents.length).toBe(6);
     await client.end();
   });
 });
