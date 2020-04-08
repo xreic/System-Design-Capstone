@@ -60,16 +60,59 @@ describe('Verifying base data set generator in working order', () => {
 });
 
 describe.skip('Verify MongoDB Seeded', () => {
-  test('Verify if seeder functionality', async () => {
+  beforeEach(async () => {
     await mongoose.connect('mongodb://127.0.0.1/fakeData', {
       useNewUrlParser: true
     });
+  });
+
+  test('Verify if seeder functionality', async () => {
     let db = await mongoose.connection;
 
     let contents = await db.collection('names').find({}).count();
-    console.log(contents);
 
     expect(contents).toEqual(10000000);
+  });
+
+  test(`Verify a query against the "collections" column executes properly`, async () => {
+    let db = await mongoose.connection;
+    let keyword = collection[Math.floor(Math.random() * collection.length)];
+
+    let contents = await db
+      .collection('names')
+      .find({
+        $or: [
+          { type: { $regex: keyword, $options: 'i' } },
+          { collections: { $regex: keyword, $options: 'i' } }
+        ]
+      })
+      .limit(50)
+      .sort({ _id: -1 })
+      .toArray();
+
+    expect(contents.length).toBe(50);
+  });
+
+  test(`Verify a query against the "type" column executes properly`, async () => {
+    let db = await mongoose.connection;
+    let keyword = type[Math.floor(Math.random() * type.length)];
+
+    let contents = await db
+      .collection('names')
+      .find({
+        $or: [
+          { type: { $regex: keyword, $options: 'i' } },
+          { collections: { $regex: keyword, $options: 'i' } }
+        ]
+      })
+      .limit(50)
+      .sort({ _id: -1 })
+      .toArray();
+
+    expect(contents.length).toBe(50);
+  });
+
+  afterEach(async () => {
     await mongoose.disconnect();
   });
 });
