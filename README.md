@@ -20,15 +20,15 @@
 
 ## Usage
 
-* Clone all related projects
-* Install the dependencies for each
-* Run one of the following commands depending on DMBS of choice
+  * Clone all related projects
+  * Install the dependencies for each
+  * Run one of the following commands depending on DMBS of choice
 
-**PostgresSQL**
-> npm run pServer
+  **PostgresSQL**
+  > npm run pServer
 
-**MongoDB**
-> npm run mServer
+  **MongoDB**
+  > npm run mServer
 
 ## Requirements
 
