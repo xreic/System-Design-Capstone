@@ -71,7 +71,7 @@ describe.skip('Verify MongoDB Seeded', () => {
 
     let contents = await db.collection('names').find({}).count();
 
-    expect(contents).toEqual(10000000);
+    expect(contents).toBeGreaterThanOrEqual(10000000);
   });
 
   test(`Verify a query against the "collections" column executes properly`, async () => {
@@ -93,9 +93,10 @@ describe.skip('Verify MongoDB Seeded', () => {
     expect(contents.length).toBe(50);
   });
 
-  test(`Verify a query against the "type" column executes properly`, async () => {
+  test(`Verify a query against the "collections" column executes in under 50ms`, async () => {
     let db = await mongoose.connection;
-    let keyword = type[Math.floor(Math.random() * type.length)];
+    let keyword = collection[Math.floor(Math.random() * collection.length)];
+    let start = process.hrtime.bigint();
 
     let contents = await db
       .collection('names')
@@ -109,7 +110,54 @@ describe.skip('Verify MongoDB Seeded', () => {
       .sort({ _id: -1 })
       .toArray();
 
+    let end = process.hrtime.bigint();
+
+    expect(parseInt(end - start, 10) / 1e6).toBeLessThanOrEqual(50);
+  });
+
+  test(`Verify a query against the "type" column executes properly`, async () => {
+    let db = await mongoose.connection;
+    let keyword = type[Math.floor(Math.random() * type.length)];
+    let start = process.hrtime.bigint();
+
+    let contents = await db
+      .collection('names')
+      .find({
+        $or: [
+          { type: { $regex: keyword, $options: 'i' } },
+          { collections: { $regex: keyword, $options: 'i' } }
+        ]
+      })
+      .limit(50)
+      .sort({ _id: -1 })
+      .toArray();
+
+    let end = process.hrtime.bigint();
+
+    expect(parseInt(end - start, 10) / 1e6).toBeLessThanOrEqual(50);
     expect(contents.length).toBe(50);
+  });
+
+  test(`Verify a query against the "type" column executes in under 50ms`, async () => {
+    let db = await mongoose.connection;
+    let keyword = collection[Math.floor(Math.random() * collection.length)];
+    let start = process.hrtime.bigint();
+
+    let contents = await db
+      .collection('names')
+      .find({
+        $or: [
+          { type: { $regex: keyword, $options: 'i' } },
+          { collections: { $regex: keyword, $options: 'i' } }
+        ]
+      })
+      .limit(50)
+      .sort({ _id: -1 })
+      .toArray();
+
+    let end = process.hrtime.bigint();
+
+    expect(parseInt(end - start, 10) / 1e6).toBeLessThanOrEqual(50);
   });
 
   afterEach(async () => {
@@ -117,14 +165,14 @@ describe.skip('Verify MongoDB Seeded', () => {
   });
 });
 
-describe('Verify PostgreSQL Seeded', () => {
+describe.skip('Verify PostgreSQL Seeded', () => {
   test('Verify if seeder functionality', async () => {
     await client.connect();
     let contents = await client.query('SELECT COUNT(*) FROM data;');
 
     contents = parseInt(contents.rows[0].count, 10);
 
-    expect(contents).toEqual(10000000);
+    expect(contents).toBeGreaterThanOrEqual(10000000);
   });
 
   test(`Verify a query against the "collections" column executes properly`, async () => {
@@ -135,12 +183,23 @@ describe('Verify PostgreSQL Seeded', () => {
     );
 
     const dataSet = [];
-
     for (var item of contents.rows) {
       dataSet.push(item.data);
     }
 
     expect(dataSet.length).toBe(50);
+  });
+
+  test(`Verify a query against the "collections" column executes in under 50ms`, async () => {
+    let keyword = collection[Math.floor(Math.random() * collection.length)];
+    let start = process.hrtime.bigint();
+
+    let contents = await client.query(
+      `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '%${keyword}%' LIMIT 50;`
+    );
+    let end = process.hrtime.bigint();
+
+    expect(parseInt(end - start, 10) / 1e6).toBeLessThanOrEqual(50);
   });
 
   test(`Verify a query against the "type" column executes properly`, async () => {
@@ -151,12 +210,23 @@ describe('Verify PostgreSQL Seeded', () => {
     );
 
     const dataSet = [];
-
     for (var item of contents.rows) {
       dataSet.push(item.data);
     }
 
     expect(dataSet.length).toBe(50);
+  });
+
+  test(`Verify a query against the "type" column executes in under 50ms`, async () => {
+    let keyword = type[Math.floor(Math.random() * type.length)];
+    let start = process.hrtime.bigint();
+
+    let contents = await client.query(
+      `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '%${keyword}%' LIMIT 50;`
+    );
+    let end = process.hrtime.bigint();
+
+    expect(parseInt(end - start, 10) / 1e6).toBeLessThanOrEqual(50);
     await client.end();
   });
 });
