@@ -20,7 +20,14 @@
 
 ## Usage
 
- Usage Instructions
+* Clone all related projects
+* Install the dependencies for each
+* Run one of the following commands depending on DMBS of choice
+
+**MongoDB**
+> npm run mServer
+**PostgresSQL**
+> npm run pServer
 
 ## Requirements
 
@@ -60,7 +67,6 @@ npm install
 npm run data
 npm run react
 npm run mSeed
-npm run mServer
 ```
 **PostgreSQL**
 ```sh
@@ -69,5 +75,4 @@ npm run data
 npm run react
 npm run pGen
 npm run pSeed
-npm run pServer
 ```
