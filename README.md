@@ -37,13 +37,13 @@ Before testing, do the following:
 * Run one of the sets of commands below
 * Finally, run ***npm test***
 
-MongoDB
+**MongoDB**
 ```sh
 npm install
 npm run data
 npm run mSeed
 ```
-PostgreSQL
+**PostgreSQL**
 ```sh
 npm install
 npm run data
@@ -54,7 +54,7 @@ npm run pSeed
 
 From within the root directory for the desired DMBS:
 
-MongoDB
+**MongoDB**
 ```sh
 npm install
 npm run data
@@ -62,7 +62,7 @@ npm run react
 npm run mSeed
 npm run mServer
 ```
-PostgreSQL
+**PostgreSQL**
 ```sh
 npm install
 npm run data
