@@ -50,6 +50,7 @@ Before testing, do the following:
 ```sh
 npm install
 npm run data
+npm run pGen
 npm run pSeed
 ```
 **MongoDB**
