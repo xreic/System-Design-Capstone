@@ -1,8 +1,8 @@
 config:
-  target: "http://54.193.22.192:3000/"
+  target: "http://54.193.22.192:3000"
   phases:
     - duration: 60
-      arrivalRate: 200
+      arrivalRate: 30
   variables:
     productIds:
       - ["soluta","delectus","eligendi", "adipisci","quod","minus","tempore","ut","eum","fugiat","perspiciatis"]
