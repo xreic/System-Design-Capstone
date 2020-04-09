@@ -28,14 +28,14 @@ router.get('/search/:keyword', async (ctx) => {
       .sort({ _id: -1 })
       .toArray();
 
-    // Reponse back to client
-    ctx.body = data;
-
     // Timer end
     let end = process.hrtime.bigint();
     console.log(
       `Finished in: ${(parseInt(end - start, 10) / 1e6).toFixed(2)} ms`
     );
+
+    // Reponse back to client
+    ctx.body = data;
   } catch (err) {
     ctx.body = err;
   }
