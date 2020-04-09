@@ -11,7 +11,7 @@ const path = require('path');
 
 // Declarations
 const app = new Koa();
-const port = 3001;
+const port = 3000;
 
 const routes = require('../../routers/routerPostgres.js');
 
