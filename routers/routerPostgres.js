@@ -24,8 +24,13 @@ router.get('/search/:keyword', async (ctx) => {
     let start = process.hrtime.bigint();
 
     // Query
+    // const data = await client.query(
+    //   `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '%${keyword}%' ORDER BY ID DESC LIMIT 50;`
+    // );
+
+    // Query
     const data = await client.query(
-      `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '%${keyword}%' ORDER BY ID DESC LIMIT 50;`
+      `SELECT * FROM data ORDER BY ID DESC LIMIT 1000000;`
     );
 
     // Timer end
