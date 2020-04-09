@@ -30,7 +30,7 @@ router.get('/search/:keyword', async (ctx) => {
     const dataSet = [];
 
     for (var item of data.rows) {
-      console.log(item.id);
+      // console.log(item.id);
       dataSet.push(item.data);
     }
 
