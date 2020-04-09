@@ -29,9 +29,12 @@ router.get('/search/:keyword', async (ctx) => {
     // );
 
     // Query
+    console.log(start);
     const data = await client.query(
-      `SELECT COUNT(*) FROM data ORDER BY ID DESC LIMIT 1000000;`
+      `SELECT COUNT (data) FROM data LIMIT 1000000;`
     );
+
+    console.log(data.rows[0].count);
 
     // Timer end
     let end = process.hrtime.bigint();
