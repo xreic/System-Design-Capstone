@@ -23,6 +23,7 @@ coverage
 # Keys
 config/config.js
 newrelic.js
+client/dist/loaderio*
 
 # Generated files
 database/pregeneratedData/*
