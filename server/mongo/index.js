@@ -1,3 +1,6 @@
+// Needy NewRelic
+require('newrelic');
+
 // Dependencies
 const Koa = require('koa');
 const bodyParser = require('koa-body');
@@ -8,7 +11,7 @@ const path = require('path');
 const app = new Koa();
 const port = 3000;
 
-const routes = require('../../routers/routerMongo.js')
+const routes = require('../../routers/routerMongo.js');
 
 // Middleware
 app.use(bodyParser());
