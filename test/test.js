@@ -165,7 +165,7 @@ describe.skip('Verify MongoDB Seeded', () => {
   });
 });
 
-describe.skip('Verify PostgreSQL Seeded', () => {
+describe('Verify PostgreSQL Seeded', () => {
   test('Verify if seeder functionality', async () => {
     await client.connect();
     let contents = await client.query('SELECT COUNT(*) FROM data;');
