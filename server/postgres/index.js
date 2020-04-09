@@ -5,6 +5,7 @@ const staticFiles = require('koa-static');
 const morgan = require('koa-morgan');
 const fs = require('fs');
 const path = require('path');
+require('newrelic');
 
 // Declarations
 const app = new Koa();
