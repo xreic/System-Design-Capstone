@@ -23,9 +23,6 @@ router.get('/search/:keyword', async (ctx) => {
   // console.log(keyword);
 
   try {
-    console.log(
-      `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '${keyword}' ORDER BY ID DESC LIMIT 50;`
-    );
     const data = await client.query(
       `SELECT * FROM data WHERE data @> '{"collections": ["${keyword}"]}' OR data->>'type' LIKE '${keyword}' ORDER BY ID DESC LIMIT 50;`
     );
