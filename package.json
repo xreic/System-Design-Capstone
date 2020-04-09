@@ -49,6 +49,7 @@
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "faker": "4.1.0",
     "jest": "25.2.7",
+    "newrelic": "^6.5.0",
     "rewire": "5.0.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"

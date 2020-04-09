@@ -22,6 +22,7 @@ coverage
 
 # Keys
 config/config.js
+newrelic.js
 
 # Generated files
 database/pregeneratedData/*
