@@ -17,7 +17,7 @@ router.get('/search/:keyword', async (ctx) => {
   var keyword = ctx.request.url.substring(8);
   keyword = keyword.split('%20').join(' ');
   keyword = keyword.split(`'`).join(`''`);
-  // console.log(keyword);
+  console.log(keyword);
 
   try {
     // Timer start
@@ -30,7 +30,7 @@ router.get('/search/:keyword', async (ctx) => {
 
     // Query
     const data = await client.query(
-      `SELECT * FROM data ORDER BY ID DESC LIMIT 1000000;`
+      `SELECT COUNT(*) FROM data ORDER BY ID DESC LIMIT 1000000;`
     );
 
     // Timer end
