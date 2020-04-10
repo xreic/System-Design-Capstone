@@ -22,13 +22,14 @@ pool.connect(function (err, client, done) {
     console.error(err);
     throw err;
   } else {
-    var stream = client.query(copyFrom(`COPY data (data) FROM STDIN;`));
+    var stream = client.query(copyFrom('COPY data (data) FROM STDIN;'));
     var fileStream = fs.createReadStream(location);
     fileStream.on('error', done);
     stream.on('error', done);
     stream.on('end', () => {
       // Timer End
       const end = process.hrtime.bigint();
+
       //prettier-ignore
       console.log(`Base set of data created in: ${(parseInt(end - start, 10) / 1e9).toFixed(2)} seconds!`);
     });
@@ -36,9 +37,3 @@ pool.connect(function (err, client, done) {
     fileStream.pipe(stream);
   }
 });
-
-// var stream = client.query(
-//   copyFrom(
-//     `COPY data (item, type, price ,image, colors, collections) FROM STDIN WITH DELIMITER '_';`
-//   )
-// );

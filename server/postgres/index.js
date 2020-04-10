@@ -1,5 +1,5 @@
 // Needy NewRelic
-require('newrelic');
+// require('newrelic');
 
 // Dependencies
 const Koa = require('koa');

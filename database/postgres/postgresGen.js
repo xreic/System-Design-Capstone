@@ -10,7 +10,7 @@ const path = require('path');
 
 // Import Data
 const genItems = require('../pregeneratedData/items.js');
-const genColors = require('../pregeneratedData/colors.js');
+// const genColors = require('../pregeneratedData/colors.js');
 const genCollection = require('../pregeneratedData/collection.js');
 
 // Declarations
@@ -34,15 +34,15 @@ const generator = async () => {
   let storage = [];
 
   for (var i = 1; i <= 10; i++) {
-    // Randomly select colors
-    let colors = {};
-    let colorsLength = Math.floor(Math.random() * 3) + 2;
+    // // Randomly select colors
+    // let colors = {};
+    // let colorsLength = Math.floor(Math.random() * 3) + 2;
 
-    for (let i = 0; i < colorsLength; i++) {
-      colors[genColors[Math.floor(Math.random() * genColors.length)]] = 1;
-    }
+    // for (let i = 0; i < colorsLength; i++) {
+    //   colors[genColors[Math.floor(Math.random() * genColors.length)]] = 1;
+    // }
 
-    colors = JSON.stringify(Object.keys(colors));
+    // colors = JSON.stringify(Object.keys(colors));
 
     // Randomly select collections
     let collections = {};
@@ -60,8 +60,13 @@ const generator = async () => {
     let type = shoeTypes[Math.floor(Math.random() * shoeTypes.length)];
     let price = faker.commerce.price();
     let image = Math.floor(Math.random() * 1000);
+
+    // storage.push(
+    //   `{"item": "${item}", "type": "${type}", "price": ${price}, "image": ${image}, "colors": ${colors}, "collections": ${collections}}`
+    // );
+
     storage.push(
-      `{"item": "${item}", "type": ["${type}"], "price": ${price}, "image": ${image}, "colors": ${colors}, "collections": ${collections}}`
+      `{"item": "${item}", "type": "${type}", "price": ${price}, "image": ${image}, "collections": ${collections}}`
     );
   }
 
