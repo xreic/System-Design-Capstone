@@ -13,3 +13,4 @@ scenarios:
               url: "/search/{{ $loopElement }}"
               # url: "/search/eligendi"
         over: productIds
+
