@@ -16,78 +16,69 @@ const filter = ["Men's%20Shoe", "Women's%20Shoe", 'Running', 'Run'];
   } catch (err) {}
 })();
 
+const querier = async (method, keyword) => {
+  var query;
+  if (method === 0) {
+    query = {
+      text: `SELECT data FROM data WHERE data->>'type' LIKE $1 ORDER BY id DESC LIMIT 50;`,
+      values: [`%${keyword}%`]
+    };
+  } else {
+    query = {
+      text: `SELECT data FROM data WHERE data->'collections' ? $1 ORDER BY id DESC LIMIT 50;`,
+      values: [`${keyword}`]
+    };
+  }
+
+  query.rowMode = 'array';
+
+  const data = await client.query(query);
+
+  return data.rows.flat();
+};
+
+// prettier-ignore
 router.get('/search/:keyword', async (ctx) => {
   var keyword = ctx.request.url.substring(8);
+  var start, end;
 
   if (filter.includes(keyword)) {
     try {
       keyword = keyword.split('%20').join(' ');
-      keyword = keyword.split(`'`).join(`''`);
 
-      if (keyword === 'Running') {
-        keyword = 'nning';
-      }
+      if (keyword === 'Running') { keyword = 'nning'; }
 
       // Timer start
-      let start = process.hrtime.bigint();
+      start = process.hrtime.bigint();
 
-      // Query
-      const data = await client.query(
-        `SELECT * FROM data WHERE data->>'type' LIKE '%${keyword}%' ORDER BY id DESC LIMIT 50;`
-      );
+      // Query and respond
+      ctx.body = await querier(0, keyword);
 
       // Timer end
-      let end = process.hrtime.bigint();
+      end = process.hrtime.bigint();
 
-      if (keyword === 'nning') {
-        keyword = 'Running';
-      }
-
-      console.log(
-        `${keyword} in: ${(parseInt(end - start, 10) / 1e6).toFixed(2)} ms`
-      );
-
-      const dataSet = [];
-
-      for (var item of data.rows) {
-        // console.log(item.id);
-        dataSet.push(item.data);
-      }
-
-      // Reponse back to client
-      ctx.body = dataSet;
+      if (keyword === 'nning') { keyword = 'Running'; }
     } catch (err) {
       ctx.body = err;
     }
   } else {
     try {
       // Timer start
-      let start = process.hrtime.bigint();
+      start = process.hrtime.bigint();
 
-      // Query
-      const data = await client.query(
-        `SELECT * FROM data WHERE data->'collections' ? '${keyword}' ORDER BY id DESC LIMIT 50;`
-      );
+      // Query and respond
+      ctx.body = await querier(1, keyword);
 
       // Timer end
-      let end = process.hrtime.bigint();
-      console.log(
-        `${keyword} in: ${(parseInt(end - start, 10) / 1e6).toFixed(2)} ms`
-      );
-
-      const dataSet = [];
-
-      for (var item of data.rows) {
-        // console.log(item.id);
-        dataSet.push(item.data);
-      }
-
-      // Reponse back to client
-      ctx.body = dataSet;
+      end = process.hrtime.bigint();
     } catch (err) {
       ctx.body = err;
     }
   }
+
+  console.log(
+    `${keyword} in: ${(parseInt(end - start, 10) / 1e6).toFixed(2)} ms`
+  );
 });
 
 module.exports = router;
