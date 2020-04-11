@@ -50,9 +50,11 @@ const querier = async (method, keyword) => {
     keyword = 'Running';
   }
 
-  console.log(
-    `${keyword} in: ${(parseInt(end - start, 10) / 1e6).toFixed(2)} ms`
-  );
+  if (parseInt(end - start, 10) / 1e6 > 50) {
+    console.log(
+      `${keyword} in: ${(parseInt(end - start, 10) / 1e6).toFixed(2)} ms`
+    );
+  }
 
   return data.rows.flat();
 };
