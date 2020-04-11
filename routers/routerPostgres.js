@@ -47,7 +47,7 @@ const querier = async (method, keyword) => {
   end = process.hrtime.bigint();
 
   // prettier-ignore
-  if ((parseInt(end - start, 10) / 1e6) > 50) {
+  if ((parseInt(end - start, 10) / 1e6) > 5) {
     if (keyword === 'nning') {
       keyword = 'Running';
     }
