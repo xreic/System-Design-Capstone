@@ -1,4 +1,5 @@
 // Dependencies
+const colors = require('colors');
 const Router = require('@koa/router');
 const router = new Router();
 const { Client } = require('pg');
@@ -53,7 +54,7 @@ const querier = async (method, keyword) => {
     }
 
     console.log(
-      `${keyword} in: ${(parseInt(end - start, 10) / 1e6).toFixed(2)} ms`
+      `${keyword} in: ${(parseInt(end - start, 10) / 1e6).toFixed(2)} ms`.red
     );
   }
 

@@ -24,6 +24,7 @@
   "dependencies": {
     "@koa/router": "8.0.8",
     "axios": "0.19.2",
+    "colors": "^1.4.0",
     "css-loader": "3.4.2",
     "file-loader": "6.0.0",
     "koa": "2.11.0",
