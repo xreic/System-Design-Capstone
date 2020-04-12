@@ -10,7 +10,6 @@ const location = path.join(__dirname, '/pregeneratedData');
 
 // Base set
 const items = {};
-const colors = {};
 const collections = {};
 
 const arraySeeder = () => {
@@ -19,18 +18,18 @@ const arraySeeder = () => {
     items[faker.commerce.productName()] = 1;
   }
 
-  // Generate colors
-  while (Object.keys(colors).length !== 20) {
-    colors[faker.commerce.color()] = 1;
-  }
-
   // Generate lorem ispum words to use for collection
   const collection = faker.lorem.words(1000).split(' ');
   var counter = 0;
 
   while (counter < collection.length) {
-    collections[collection[counter]] = 1;
-    counter++;
+    if (collection[counter].length < 2) {
+      counter++;
+      continue;
+    } else {
+      counter++;
+      collections[collection[counter]] = 1;
+    }
   }
 };
 
@@ -39,12 +38,6 @@ arraySeeder();
 fs.writeFileSync(
   path.join(location, 'items.js'),
   `module.exports = ${JSON.stringify(Object.keys(items))};`,
-  'utf8'
-);
-
-fs.writeFileSync(
-  path.join(location, 'colors.js'),
-  `module.exports = ${JSON.stringify(Object.keys(colors))};`,
   'utf8'
 );
 

@@ -26,4 +26,4 @@ newrelic.js
 client/dist/loaderio*
 
 # Generated files
-database/pregeneratedData/*
+database/pregeneratedData/data*

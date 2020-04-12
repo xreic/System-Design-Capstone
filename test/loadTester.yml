@@ -1,11 +1,11 @@
 config:
-  target: "http://13.52.247.137:3000"
+  target: "http://13.52.103.13:3000"
   phases:
-    - duration: 60
+    - duration: 180
       arrivalRate: 100
   variables:
     productIds:
-      - ["soluta", "delectus", "laborum", "ut", "eum", "fugiat", "perspiciatis", "Running", "Run"]
+      - ["soluta", "delectus", 'ducimus', 'similique', 'illo', 'animi', 'inventore', 'Running']
 scenarios:
   - flow:
       - loop:

@@ -11,6 +11,7 @@ const client = new Client(URL);
 // Declarations
 const filter = ["Men's%20Shoe", "Women's%20Shoe", 'Running', 'Run'];
 
+// Connect to Postgres
 (async () => {
   try {
     await client.connect();
@@ -63,6 +64,8 @@ const querier = async (method, keyword) => {
 
 router.get('/search/:keyword', async (ctx) => {
   var keyword = ctx.request.url.substring(8);
+
+  console.log(`3000 ~ ${keyword}`);
 
   if (filter.includes(keyword)) {
     try {
