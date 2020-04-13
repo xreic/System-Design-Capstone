@@ -65,8 +65,6 @@ const querier = async (method, keyword) => {
 router.get('/search/:keyword', async (ctx) => {
   var keyword = ctx.request.url.substring(8);
 
-  console.log(`3000 ~ ${keyword}`);
-
   if (filter.includes(keyword)) {
     try {
       if (keyword.includes('%20')) {
