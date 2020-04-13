@@ -24,7 +24,7 @@
   * Clone all related projects
   * Install the dependencies for each
     * Scroll down to see installation procedure
-  * `npm start`
+  * `npm start` or `npm test`
 
 
 ## Requirements
@@ -35,16 +35,6 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - etc
 
 ## Development
-
-### Testing
-Run ***npm test*** after performing the following:
-
-```sh
-npm install
-npm run data
-npm run pGen
-npm run pSeed
-```
 
 ### Installing Dependencies
 From within the root directory:
