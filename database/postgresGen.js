@@ -9,8 +9,8 @@ const fsP = require('fs').promises;
 const path = require('path');
 
 // Import Data
-const genItems = require('../pregeneratedData/items.js');
-const genCollection = require('../pregeneratedData/collection.js');
+const genItems = require('./pregeneratedData/items.js');
+const genCollection = require('./pregeneratedData/collection.js');
 
 // Declarations
 const shoeTypes = [
@@ -20,7 +20,7 @@ const shoeTypes = [
   "Women's Running Shoes"
 ];
 
-const location = path.join(__dirname, '../pregeneratedData/data.txt');
+const location = path.join(__dirname, './pregeneratedData/data.txt');
 
 try {
   fs.unlinkSync(location);

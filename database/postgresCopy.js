@@ -4,7 +4,7 @@ const start = process.hrtime.bigint();
 const fs = require('fs');
 const path = require('path');
 
-const { Pool, Client } = require('pg');
+const { Pool } = require('pg');
 const copyFrom = require('pg-copy-streams').from;
 
 const pool = new Pool({
@@ -15,7 +15,7 @@ const pool = new Pool({
   database: 'postgres'
 });
 
-const location = path.join(__dirname, '../pregeneratedData/data.txt');
+const location = path.join(__dirname, './pregeneratedData/data.txt');
 
 pool.connect(function (err, client, done) {
   if (err) {
