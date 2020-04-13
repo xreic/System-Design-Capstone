@@ -8,14 +8,14 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "nodemon server/index.js",
     "data": "node database/fakerMaker.js",
     "Test-Scripts": "------ Testing ------",
     "test": "jest",
     "load": "artillery run test/loadTester.yml",
     "pSQL-Scripts": "------ pSQL ------",
     "pGen": "node database/postgresGen.js",
-    "pSeed": "node database/postgres.js && node database/postgresCopy.js",
-    "pServer": "nodemon server/index.js"
+    "pSeed": "node database/postgres.js && node database/postgresCopy.js"
   },
   "dependencies": {
     "@koa/router": "8.0.8",
