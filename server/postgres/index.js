@@ -3,8 +3,8 @@ require('newrelic');
 
 // Dependencies
 const Koa = require('koa');
-// const bodyParser = require('koa-body');
-const staticFiles = require('koa-static');
+const bodyParser = require('koa-body');
+// const staticFiles = require('koa-static');
 const fs = require('fs');
 const path = require('path');
 
