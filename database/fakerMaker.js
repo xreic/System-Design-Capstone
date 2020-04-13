@@ -20,15 +20,12 @@ const arraySeeder = () => {
 
   // Generate lorem ispum words to use for collection
   const collection = faker.lorem.words(1000).split(' ');
-  var counter = 0;
 
-  while (counter < collection.length) {
-    if (collection[counter].length < 2) {
-      counter++;
+  for (var i = 0; i < collection.length; i++) {
+    if (collection[i].length < 2) {
       continue;
     } else {
-      collections[collection[counter]] = 1;
-      counter++;
+      collections[collection[i]] = 1;
     }
   }
 };
