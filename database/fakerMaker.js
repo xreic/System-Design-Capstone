@@ -22,7 +22,7 @@ const arraySeeder = () => {
   const collection = faker.lorem.words(1000).split(' ');
 
   for (var i = 0; i < collection.length; i++) {
-    if (collection[i].length < 2) {
+    if (collection[i].length < 2 || collection[i] === 'laborum') {
       continue;
     } else {
       collections[collection[i]] = 1;
