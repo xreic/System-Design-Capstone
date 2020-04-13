@@ -27,8 +27,8 @@ const arraySeeder = () => {
       counter++;
       continue;
     } else {
-      counter++;
       collections[collection[counter]] = 1;
+      counter++;
     }
   }
 };
