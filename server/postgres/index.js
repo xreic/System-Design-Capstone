@@ -1,9 +1,9 @@
 // Needy NewRelic
-// require('newrelic');
+require('newrelic');
 
 // Dependencies
 const Koa = require('koa');
-const bodyParser = require('koa-body');
+// const bodyParser = require('koa-body');
 const staticFiles = require('koa-static');
 const fs = require('fs');
 const path = require('path');
@@ -16,7 +16,7 @@ const routes = require('../../routers/routerPostgres.js');
 
 // Middleware
 app.use(bodyParser());
-app.use(staticFiles(path.join(__dirname, '../../client/dist')));
+// app.use(staticFiles(path.join(__dirname, '../../client/dist')));
 
 // Router
 app.use(routes.routes());
