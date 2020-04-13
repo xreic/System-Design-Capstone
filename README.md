@@ -23,13 +23,10 @@
 
   * Clone all related projects
   * Install the dependencies for each
-  * Run one of the following commands depending on DMBS of choice
 
   **PostgresSQL**
-  > npm run pServer
+  > npm start
 
-  **MongoDB**
-  > npm run mServer
 
 ## Requirements
 
@@ -41,43 +38,24 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 ## Development
 
 ### Testing
-Before testing, do the following:
-  * Remove the .skip for the DBMS of choice
-  * Run one of the sets of commands below
-  * Finally, run ***npm test***
+Run ***npm test*** after performing the following:
 
-**PostgreSQL**
 ```sh
 npm install
 npm run data
 npm run pGen
 npm run pSeed
-```
-**MongoDB**
-```sh
-npm install
-npm run data
-npm run mSeed
 ```
 
 ### Installing Dependencies
+From within the root directory:
 
-From within the root directory for the desired DMBS:
-
-**PostgreSQL**
 ```sh
 npm install
 npm run data
 npm run react
 npm run pGen
 npm run pSeed
-```
-**MongoDB**
-```sh
-npm install
-npm run data
-npm run react
-npm run mSeed
 ```
 
 ## Notes
@@ -88,3 +66,5 @@ error: syntax error at or near "s"
   at Connection.parseMessage (node_modules/pg/lib/connection.js:399:19)
   at Socket.<anonymous> (node_modules/pg/lib/connection.js:115:22)
 ```
+
+If `npm pSeed` shows an error saying *Fail*, exit immediately and re-run
