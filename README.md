@@ -52,12 +52,13 @@ From within the root directory:
 ```sh
 npm install
 npm run data
-npm run react
 npm run pGen
 npm run pSeed
 ```
 
 ## Notes
+If `npm pSeed` shows an error saying **Fail**, exit immediately and re-run
+
 If you receive this error upon testing for pSQL, just run it again
 ```sh
 error: syntax error at or near "s"
@@ -65,5 +66,3 @@ error: syntax error at or near "s"
   at Connection.parseMessage (node_modules/pg/lib/connection.js:399:19)
   at Socket.<anonymous> (node_modules/pg/lib/connection.js:115:22)
 ```
-
-If `npm pSeed` shows an error saying *Fail*, exit immediately and re-run
