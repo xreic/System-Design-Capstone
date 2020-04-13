@@ -23,9 +23,8 @@
 
   * Clone all related projects
   * Install the dependencies for each
-
-  **PostgresSQL**
-  > npm start
+    * Scroll down to see installation procedure
+  * `npm start`
 
 
 ## Requirements
