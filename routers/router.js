@@ -19,8 +19,7 @@ const filter = ["Men's%20Shoe", "Women's%20Shoe", 'Running', 'Run'];
 })();
 
 const querier = async (method, keyword) => {
-  var query;
-  // , start, end;
+  var query, start, end;
 
   if (method === 0) {
     query = {
@@ -41,24 +40,24 @@ const querier = async (method, keyword) => {
 
   query.rowMode = 'array';
 
-  // // Timer start
-  // start = process.hrtime.bigint();
+  // Timer start
+  start = process.hrtime.bigint();
 
   const data = await client.query(query);
 
-  // // Timer end
-  // end = process.hrtime.bigint();
+  // Timer end
+  end = process.hrtime.bigint();
 
-  // // prettier-ignore
-  // if ((parseInt(end - start, 10) / 1e6) > 25) {
-  //   if (keyword === 'nning') {
-  //     keyword = 'Running';
-  //   }
+  // prettier-ignore
+  if ((parseInt(end - start, 10) / 1e6) > 25) {
+    if (keyword === 'nning') {
+      keyword = 'Running';
+    }
 
-  //   console.log(
-  //     `${keyword} in: ${(parseInt(end - start, 10) / 1e6).toFixed(2)} ms`.red
-  //   );
-  // }
+    console.log(
+      `${keyword} in: ${(parseInt(end - start, 10) / 1e6).toFixed(2)} ms`.red
+    );
+  }
 
   return data.rows.flat();
 };
