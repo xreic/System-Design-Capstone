@@ -23,17 +23,17 @@ const querier = async (method, keyword) => {
 
   if (method === 0) {
     query = {
-      text: `SELECT data FROM data WHERE data->'collections' ? $1 ORDER BY id DESC LIMIT 100;`,
+      text: `SELECT data FROM data WHERE data->'collections' ? $1 ORDER BY id DESC LIMIT 50;`,
       values: [`${keyword}`]
     };
   } else if (method === 1) {
     query = {
-      text: `SELECT data FROM data WHERE data->>'type' LIKE $1 ORDER BY id DESC LIMIT 100;`,
+      text: `SELECT data FROM data WHERE data->>'type' LIKE $1 ORDER BY id DESC LIMIT 50;`,
       values: [`%${keyword}%`]
     };
   } else {
     query = {
-      text: `SELECT data FROM data WHERE data->>'type' LIKE $1 AND data->>'type' NOT LIKE '%Run%' ORDER BY id DESC LIMIT 100;`,
+      text: `SELECT data FROM data WHERE data->>'type' LIKE $1 AND data->>'type' NOT LIKE '%Run%' ORDER BY id DESC LIMIT 50;`,
       values: [`${keyword}%`]
     };
   }
