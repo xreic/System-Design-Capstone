@@ -64,6 +64,7 @@ const querier = async (method, keyword) => {
 
 router.get('/search/:keyword', async (ctx) => {
   var keyword = ctx.request.url.substring(8);
+  keyword = keyword.split('?')[0];
 
   if (filter.includes(keyword)) {
     try {

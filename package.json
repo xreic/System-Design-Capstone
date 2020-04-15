@@ -10,9 +10,7 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "data": "node database/fakerMaker.js",
-    "Test-Scripts": "------ Testing ------",
     "test": "jest",
-    "load": "artillery run test/loadTester.yml",
     "pSQL-Scripts": "------ pSQL ------",
     "pGen": "node database/postgresGen.js",
     "pSeed": "node database/postgres.js && node database/postgresCopy.js"
@@ -28,7 +26,6 @@
     "pg-copy-streams": "2.2.2"
   },
   "devDependencies": {
-    "artillery": "^1.6.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "faker": "4.1.0",
     "jest": "25.2.7",
