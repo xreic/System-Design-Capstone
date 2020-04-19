@@ -1,3 +1,6 @@
+// NewRelic
+require('newrelic');
+
 // Dependencies
 const Koa = require('koa');
 

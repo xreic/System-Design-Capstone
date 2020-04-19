@@ -19,6 +19,7 @@
     "@koa/router": "8.0.8",
     "colors": "^1.4.0",
     "koa": "2.11.0",
+    "newrelic": "^6.5.0",
     "nodemon": "2.0.2",
     "pg": "8.0.0",
     "pg-copy-streams": "2.2.2"
