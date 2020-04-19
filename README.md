@@ -1,4 +1,4 @@
-# Project Name
+# Navigation Bar Webscaling
 
 >For this project, we will be attempt to webscale and improve the response time of another group's FEC.
 
