@@ -12,7 +12,8 @@
 
 ## Stats
 
-[Stats](https://docs.google.com/spreadsheets/d/1S8Af02fTtTmnbA80wFej19aTLSGP5QH5kyQQp2dVEQc/)
+[Metrics](https://www.dropbox.com/sh/phjn0q34qhyuga7/AADk-Xl3LHUACw3AxrKRyDXTa?dl=0)
+
 
 ## Usage
 
