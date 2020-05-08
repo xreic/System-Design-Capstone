@@ -33,6 +33,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 ## Development
 
 ### Installing Dependencies
+
 From within the root directory:
 
 ```sh
@@ -43,6 +44,7 @@ npm run pSeed
 ```
 
 ## Notes
+
 If `npm pSeed` shows an error saying **Fail**, exit immediately and re-run
 
 If you receive this error upon testing for pSQL, just run it again
