@@ -10,9 +10,9 @@
 4. [Development](#development)
 5. [Notes](#notes)
 
-## [Stats]
+## Stats
 
-Stats(https://docs.google.com/spreadsheets/d/1S8Af02fTtTmnbA80wFej19aTLSGP5QH5kyQQp2dVEQc/)
+[Stats](https://docs.google.com/spreadsheets/d/1S8Af02fTtTmnbA80wFej19aTLSGP5QH5kyQQp2dVEQc/)
 
 ## Usage
 
