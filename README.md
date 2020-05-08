@@ -2,13 +2,6 @@
 
 >For this project, we will be attempt to webscale and improve the response time of another group's FEC.
 
-## Related Projects
-
-  - https://github.com/HRLA35-SDC/repo
-  - https://github.com/HRLA35-SDC/repo
-  - https://github.com/HRLA35-SDC/repo
-  - https://github.com/HRLA35-SDC/repo
-
 ## Table of Contents
 
 1. [Stats](#Stats)
