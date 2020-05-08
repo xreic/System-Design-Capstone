@@ -1,6 +1,6 @@
 # Navigation Bar Webscaling
 
->For this project, we will be attempt to webscale and improve the response time of another group's FEC.
+>Webscaling on legacy codebase to handle large user load querying onto database of 10 million records
 
 ## Table of Contents
 
